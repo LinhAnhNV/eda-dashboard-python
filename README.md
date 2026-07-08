@@ -1,73 +1,65 @@
-# EDA Dashboard - Titanic
-Phân tích dữ liệu khám phá (EDA) trên dataset Titanic — dùng Pandas để xử lý dữ liệu, Matplotlib và Seaborn để trực quan hóa, scikit-learn để load dataset.
-Bắt đầu từ việc khảo sát sơ bộ, mở rộng dần qua từng loại biểu đồ. Viết từng bước, phân tích từng kết quả — không dùng notebook, không template có sẵn.
+# 📊 EDA Dashboard
 
-> An exploratory data analysis project on the Titanic dataset. Built step by step, chart by chart.
+Dashboard phân tích dữ liệu khám phá (EDA) tương tác, xây dựng bằng **Streamlit**, dùng **Pandas** xử lý dữ liệu, **Matplotlib** và **Seaborn** để trực quan hóa. Cho phép chuyển đổi giữa 2 dataset **Titanic** và **Iris**, với bộ lọc trực tiếp trên sidebar.
 
----
-
-## Nội dung phân tích / Analysis
-
-- Khảo sát sơ bộ — shape, kiểu dữ liệu, missing values, thống kê mô tả
-- Phân phối tuổi hành khách — histogram + KDE
-- Tỉ lệ sống sót theo giới tính — countplot, barplot
-- Giá vé theo hạng vé — boxplot, phát hiện outlier
-- Tương quan giữa các biến số — heatmap
-- Tổng quan đa biến — pairplot theo sống/chết
-- Kết luận — nhận xét từng yếu tố ảnh hưởng đến tỉ lệ sống sót
+> An interactive EDA dashboard built with Streamlit, letting users explore the Titanic and Iris datasets with live filters.
 
 ---
 
-## Biểu đồ / Charts
+## Tính năng / Features
+
+- 🔀 Chuyển đổi giữa 2 dataset: Titanic (phân tích sống sót) và Iris (phân loại loài hoa)
+- 🎛️ Bộ lọc tương tác trên sidebar (giới tính, hạng vé, khoảng tuổi cho Titanic; loài hoa cho Iris)
+- 📈 6 loại biểu đồ mỗi dataset: countplot, histogram, boxplot, barplot, heatmap tương quan
+- 🧮 Thống kê tổng quan (shape, missing values, describe) cập nhật theo bộ lọc
+
+---
+
+## Biểu đồ / Charts (Titanic)
 
 | # | Loại | Nội dung |
 |---|------|----------|
 | 1 | Countplot | Tỉ lệ sống sót theo giới tính |
 | 2 | Histogram | Phân phối tuổi hành khách |
-| 3 | Boxplot | Giá vé theo hạng vé |
+| 3 | Countplot | Phân phối hạng vé |
+| 4 | Boxplot | Giá vé theo hạng vé |
+| 5 | Barplot | Tỉ lệ sống sót trung bình theo giới tính |
+| 6 | Heatmap | Tương quan giữa các biến số |
+
+## Biểu đồ / Charts (Iris)
+
+| # | Loại | Nội dung |
+|---|------|----------|
+| 1 | Histogram | Phân phối chiều dài cánh hoa theo loài |
+| 2 | Scatterplot | Sepal length vs Sepal width |
+| 3 | Boxplot | Đặc trưng theo loài |
 | 4 | Heatmap | Tương quan giữa các biến số |
-| 5 | Barplot | Tỉ lệ sống sót theo giới tính |
-| 6 | Pairplot | Tổng quan đa biến (age, fare, pclass) |
 
 ---
 
 ## Cấu trúc / Structure
 
-```
 eda-dashboard-python/
-├── main.py       # Load data, vẽ biểu đồ, kết luận
+├── app.py             # Streamlit app (entry point)
+├── requirements.txt
 └── README.md
-```
-
----
-
-## Yêu cầu / Requirements
-
-- Python >= 3.11
-- pandas
-- matplotlib
-- seaborn
-- scikit-learn
 
 ---
 
 ## Cài đặt & Chạy / Setup & Run
 
 ```bash
-# Clone repo
 git clone https://github.com/LinhAnhNV/eda-dashboard-python.git
 cd eda-dashboard-python
-
-# Cài thư viện
-pip install pandas matplotlib seaborn scikit-learn
-
-# Chạy
-python main.py
+pip install -r requirements.txt
+streamlit run app.py
 ```
+
+App sẽ tự mở ở `http://localhost:8501`.
 
 ---
 
-## Kết luận / Findings
+## Kết luận / Findings (Titanic)
 
 | Yếu tố | Nhận xét |
 |--------|----------|
@@ -83,4 +75,4 @@ python main.py
 
 **Nguyễn Văn Linh Anh**  
 Sinh viên CNTT — ĐH Công Thương TP.HCM (HUIT)  
-Củ Chi, TP.HCM · 2025
+Củ Chi, TP.HCM · 2026
